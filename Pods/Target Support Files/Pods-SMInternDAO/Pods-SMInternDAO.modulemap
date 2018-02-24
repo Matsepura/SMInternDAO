@@ -1,0 +1,6 @@
+framework module Pods_SMInternDAO {
+  umbrella header "Pods-SMInternDAO-umbrella.h"
+
+  export *
+  module * { export * }
+}

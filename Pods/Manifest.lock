@@ -1,0 +1,17 @@
+PODS:
+  - GRDB.swift (2.8.0)
+  - SQLite.swift (0.11.4):
+    - SQLite.swift/standard (= 0.11.4)
+  - SQLite.swift/standard (0.11.4)
+
+DEPENDENCIES:
+  - GRDB.swift
+  - SQLite.swift (~> 0.11.4)
+
+SPEC CHECKSUMS:
+  GRDB.swift: 7456b5a8503d150ec0ef6aaf5ade45996565a779
+  SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
+
+PODFILE CHECKSUM: f5e253c45f30afede2aa190f61fa85a49cfcb69d
+
+COCOAPODS: 1.4.0
