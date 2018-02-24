@@ -17,6 +17,7 @@
 		45AA6DA62041705F00481C24 /* SQLiteSwiftConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA6DA52041705F00481C24 /* SQLiteSwiftConfiguration.swift */; };
 		45AA6DA82041706700481C24 /* SQLiteSwiftDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA6DA72041706700481C24 /* SQLiteSwiftDAO.swift */; };
 		45AA6DAA2041706E00481C24 /* SQLiteSwiftTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA6DA92041706E00481C24 /* SQLiteSwiftTranslator.swift */; };
+		45EA2E482041C2C100D4D4F6 /* GRDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EA2E472041C2C100D4D4F6 /* GRDBModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		45AA6DA52041705F00481C24 /* SQLiteSwiftConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteSwiftConfiguration.swift; sourceTree = "<group>"; };
 		45AA6DA72041706700481C24 /* SQLiteSwiftDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteSwiftDAO.swift; sourceTree = "<group>"; };
 		45AA6DA92041706E00481C24 /* SQLiteSwiftTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteSwiftTranslator.swift; sourceTree = "<group>"; };
+		45EA2E472041C2C100D4D4F6 /* GRDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDBModel.swift; sourceTree = "<group>"; };
 		CD0047A543AC70FB13308A26 /* Pods-SMInternDAO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMInternDAO.release.xcconfig"; path = "Pods/Target Support Files/Pods-SMInternDAO/Pods-SMInternDAO.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			children = (
 				45AA6D9A20416EE400481C24 /* Configuration */,
 				45AA6D9920416EE300481C24 /* DAO */,
+				45EA2E462041C23400D4D4F6 /* Model */,
 				45AA6D9820416EE100481C24 /* Translator */,
 			);
 			path = "GRDB.swift DAO";
@@ -162,6 +165,14 @@
 				45AA6DA52041705F00481C24 /* SQLiteSwiftConfiguration.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		45EA2E462041C23400D4D4F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45EA2E472041C2C100D4D4F6 /* GRDBModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		87BE2B3B05D97D2086BDD6D1 /* Frameworks */ = {
@@ -295,6 +306,7 @@
 				45AA6DA020416FEE00481C24 /* GRDBConfiguration.swift in Sources */,
 				45AA6DA82041706700481C24 /* SQLiteSwiftDAO.swift in Sources */,
 				45AA6DA42041701000481C24 /* GRDBTranslator.swift in Sources */,
+				45EA2E482041C2C100D4D4F6 /* GRDBModel.swift in Sources */,
 				45AA6D9320416C1500481C24 /* DAO.swift in Sources */,
 				45AA6DA220416FFF00481C24 /* GRDBDAO.swift in Sources */,
 				45AA6DAA2041706E00481C24 /* SQLiteSwiftTranslator.swift in Sources */,

@@ -13,6 +13,6 @@ Creating DAO for SQLite.swift and GRDB.swift
   s.source           = { :git => 'https://github.com/Matsepura/SMInternDAO.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
-  s.source_files = 'SMInternDAO/*.{swift,plist}'
+  s.source_files = 'SMInternDAO/**/*.{h,swift,plist}'
 
 end
