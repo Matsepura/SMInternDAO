@@ -14,5 +14,6 @@ Creating DAO for SQLite.swift and GRDB.swift
 
   s.ios.deployment_target = '10.0'
   s.source_files = 'SMInternDAO/**/*.{h,swift,plist}'
+  s.dependecy "GRDB.swift", "~> 2.8.0"
 
 end
