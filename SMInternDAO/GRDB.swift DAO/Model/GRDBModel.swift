@@ -9,7 +9,7 @@
 import Foundation
 import GRDB
 
-open class GRDBModel: RowConvertible, Hashable {
+open class GRDBModel: RowConvertible, Hashable, MutablePersistable {
     public required init(row: Row) {
         fatalError("Abstact method")
     }
@@ -27,15 +27,12 @@ open class GRDBModel: RowConvertible, Hashable {
         // https://stackoverflow.com/questions/40713057/strange-behaviour-on-implementing-equatable-on-generic-struct-in-swift
         return lhs.entryId == rhs.entryId
     }
-}
-
-// Persistable vs MutablePersistable ?
-extension GRDBModel: MutablePersistable {
-    @objc open func encode(to container: inout PersistenceContainer) {
+    
+    open func encode(to container: inout PersistenceContainer) {
         fatalError("Abstact method")
     }
     
-    @objc open static var databaseTableName: String {
+    open static var databaseTableName: String {
         fatalError("Abstact method")
     }
 }
