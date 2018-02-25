@@ -31,11 +31,11 @@ open class GRDBModel: RowConvertible, Hashable {
 
 // Persistable vs MutablePersistable ?
 extension GRDBModel: MutablePersistable {
-    open func encode(to container: inout PersistenceContainer) {
+    @objc open func encode(to container: inout PersistenceContainer) {
         fatalError("Abstact method")
     }
     
-    open static var databaseTableName: String {
+    @objc open static var databaseTableName: String {
         fatalError("Abstact method")
     }
 }
