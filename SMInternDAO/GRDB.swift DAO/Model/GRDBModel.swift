@@ -9,7 +9,7 @@
 import Foundation
 import GRDB
 
-public class GRDBModel: RowConvertible, Hashable {
+open class GRDBModel: RowConvertible, Hashable {
     public required init(row: Row) {
         fatalError("Abstact method")
     }
