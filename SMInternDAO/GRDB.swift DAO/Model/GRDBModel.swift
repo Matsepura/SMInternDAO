@@ -21,6 +21,7 @@ open class GRDBModel: RowConvertible, Hashable, MutablePersistable {
     
     public var entryId: String
     public var hashValue: Int = 0
+    public var databaseName: String
     
     open static func ==(lhs: GRDBModel, rhs: GRDBModel) -> Bool {
         // TODO: - хз что это - почитать и доделать
@@ -32,7 +33,7 @@ open class GRDBModel: RowConvertible, Hashable, MutablePersistable {
         fatalError("Abstact method")
     }
     
-    open static var databaseTableName: String {
+    open class var databaseTableName: String {
         fatalError("Abstact method")
     }
 }
