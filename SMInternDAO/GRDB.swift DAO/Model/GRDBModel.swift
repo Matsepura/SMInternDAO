@@ -14,11 +14,18 @@ public class GRDBModel: RowConvertible, Hashable {
         fatalError("Abstact method")
     }
     
+    public required init(entryId: String,
+                         row: Row) {
+        fatalError("Abstact method")
+    }
+    
+    public var entryId: String
     public var hashValue: Int = 0
     
     public static func ==(lhs: GRDBModel, rhs: GRDBModel) -> Bool {
         // TODO: - хз что это - почитать и доделать
-        return true
+        // https://stackoverflow.com/questions/40713057/strange-behaviour-on-implementing-equatable-on-generic-struct-in-swift
+        return lhs.entryId == rhs.entryId
     }
 }
 

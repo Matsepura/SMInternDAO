@@ -9,52 +9,72 @@
 import Foundation
 import GRDB
 
-/// Parent class for `GRDB.swift` translators.
-/// Translators fill properties of new/existant entities from entries and other way.
-open class CoreDataTranslator<DBModel: GRDBModel, Model: Entity> {
+open class GRDBDAO<Model: Entity, DBModel: GRDBModel>: DAO<Model>  {
     
-    /// Helper property for `GRDB.swiftDAO`.
-    open var entryClassName: String {
-        return NSStringFromClass(DBModel.self).components(separatedBy: ".").last!
+    private let db: DatabaseQueue
+    private let translator: GRDBTranslator<Model, DBModel>
+    
+    public init(db: DatabaseQueue,
+                translator: GRDBTranslator<Model, DBModel>) {
+        self.db = db
+        self.translator = translator
     }
     
-    
-    /// Creates an instance of class.
-    required public init() { }
-    
-    
-    /// All properties of entity will be overridden by entry properties.
-    ///
-    /// - Parameters:
-    ///   - entity: instance of `Model` type.
-    ///   - fromEntry: instance of `CDModel` type.
-    open func fill(_ entity: Model, fromEntry: DBModel) {
-        fatalError("Abstact method")
+    //MARK: - DAO
+    override open func persist(_ entity: Model) throws {
+        let entry = DBModel(row: Row())
+        translator.fill(entry, fromEntity: entity)
+        try? write(entry)
     }
     
-    
-    /// All properties of entry will be overridden by entity properties.
-    ///
-    /// - Parameters:
-    ///   - entry: instance of `DBModel` type.
-    ///   - fromEntity: instance of `Model` type.
-    ///   - context: managed object context for current transaction.
-    open func fill(_ entry: DBModel, fromEntity: Model, in context: GRDBModel) {
-        fatalError("Abstact method")
+    open override func persist(_ entities: [Model]) throws {
+        var entries: [DBModel] = []
+        translator.fill(&entries, fromEntities: entities)
+        try? write(entries)
     }
     
-    /// All properties of entries will be overridden by entities properties.
-    ///
-    /// - Parameters:
-    ///   - entities: array of instances of `DBModel` type.
-    ///   - fromEntries: array of instances of `DBModel` type.
-    open func fill(_ entities: inout [Model], fromEntries: Set<DBModel>?) {
-        entities.removeAll()
-        
-        fromEntries?.forEach {
-            let model = Model()
-            entities.append(model)
-            self.fill(model, fromEntry: $0)
+    open override func read() -> [Model] {
+        return fetch().map {
+            let entity = Model()
+            self.translator.fill(entity, fromEntry: $0)
+            return entity
+        }
+    }
+    
+    override open func erase() throws {
+        delete()
+    }
+    
+    // MARK: - Private
+    private func write(_ entry: DBModel) throws {
+        db.inDatabase { (db) in
+            var entry = entry
+            try? entry.save(db)
+        }
+    }
+    
+    private func write(_ entries: [DBModel]) throws {
+        db.inDatabase { (db)  in
+            entries.forEach({
+                var entry = $0
+                try? entry.save(db)
+            })
+        }
+    }
+    
+    private func fetch() -> [DBModel] {
+        var array: [DBModel] = []
+        _ = db.inDatabase { (db) in
+            if let dbArray = try? DBModel.fetchAll(db) {
+                array = dbArray
+            }
+        }
+        return array
+    }
+
+    private func delete() {
+        _ = db.inDatabase { (db) in
+            try? DBModel.deleteAll(db)
         }
     }
 }
