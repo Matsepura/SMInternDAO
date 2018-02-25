@@ -22,7 +22,7 @@ open class GRDBModel: RowConvertible, Hashable {
     public var entryId: String
     public var hashValue: Int = 0
     
-    public static func ==(lhs: GRDBModel, rhs: GRDBModel) -> Bool {
+    open static func ==(lhs: GRDBModel, rhs: GRDBModel) -> Bool {
         // TODO: - хз что это - почитать и доделать
         // https://stackoverflow.com/questions/40713057/strange-behaviour-on-implementing-equatable-on-generic-struct-in-swift
         return lhs.entryId == rhs.entryId
@@ -31,11 +31,11 @@ open class GRDBModel: RowConvertible, Hashable {
 
 // Persistable vs MutablePersistable ?
 extension GRDBModel: MutablePersistable {
-    public func encode(to container: inout PersistenceContainer) {
+    open func encode(to container: inout PersistenceContainer) {
         fatalError("Abstact method")
     }
     
-    public static var databaseTableName: String {
+    open static var databaseTableName: String {
         fatalError("Abstact method")
     }
 }

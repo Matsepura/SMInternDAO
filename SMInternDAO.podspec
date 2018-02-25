@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SMInternDAO'
-  s.version          = '0.1.9'
+  s.version          = '0.1.9.1'
   s.summary          = 'Intern homework'
 
   s.description      = <<-DESC
