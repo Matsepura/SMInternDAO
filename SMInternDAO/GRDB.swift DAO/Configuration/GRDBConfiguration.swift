@@ -16,7 +16,7 @@ public struct CoreDataConfiguration {
     
     /// SQLite creates the database file if it does not already exist.
     /// The connection is closed when the database queue gets deallocated.
-    var dbQueue: DatabaseQueue? {
+    public var dbQueue: DatabaseQueue? {
         let queue = try? DatabaseQueue(path: pathName,
                                        configuration: config)
         return queue
