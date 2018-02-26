@@ -67,7 +67,7 @@ open class GRDBTranslator<Model: Entity, DBModel: GRDBModel> {
                 if let entry = entry {
                     return (entry, entity)
                 } else {
-                    let entry = DBModel(row: Row())
+                    let entry = DBModel()
                     newEntries.append(entry)
                     return (entry, entity)
                 }
@@ -86,7 +86,7 @@ open class GRDBTranslator<Model: Entity, DBModel: GRDBModel> {
                 }
             }
         } else {
-//            entries.append(objectsIn: newEntries)
+            //            entries.append(objectsIn: newEntries)
             entries.append(contentsOf: newEntries)
         }
     }
@@ -106,3 +106,4 @@ open class GRDBTranslator<Model: Entity, DBModel: GRDBModel> {
         }
     }
 }
+

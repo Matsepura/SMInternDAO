@@ -28,7 +28,7 @@ public struct CoreDataConfiguration {
     
     public init(pathName: String) {
         self.pathName = pathName
-        self.config.readonly = true
+        self.config.readonly = false
         self.config.foreignKeysEnabled = true // Default is already true
         self.config.trace = { print($0) } // Prints all SQL statements
     }

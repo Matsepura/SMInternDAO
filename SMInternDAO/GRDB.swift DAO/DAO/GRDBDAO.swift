@@ -10,7 +10,6 @@ import Foundation
 import GRDB
 
 open class GRDBDAO<Model: Entity, DBModel: GRDBModel>: DAO<Model>  {
-    
     private let db: DatabaseQueue
     private let translator: GRDBTranslator<Model, DBModel>
     
@@ -22,7 +21,7 @@ open class GRDBDAO<Model: Entity, DBModel: GRDBModel>: DAO<Model>  {
     
     //MARK: - DAO
     override open func persist(_ entity: Model) throws {
-        let entry = DBModel(row: Row())
+        let entry = DBModel()
         translator.fill(entry, fromEntity: entity)
         try? write(entry)
     }
@@ -48,16 +47,19 @@ open class GRDBDAO<Model: Entity, DBModel: GRDBModel>: DAO<Model>  {
     // MARK: - Private
     private func write(_ entry: DBModel) throws {
         db.inDatabase { (db) in
-            var entry = entry
-            try? entry.save(db)
+            do {
+                try entry.save(db)
+            }
+            catch (let error) {
+                print(error.localizedDescription)
+            }
         }
     }
     
     private func write(_ entries: [DBModel]) throws {
         db.inDatabase { (db)  in
             entries.forEach({
-                var entry = $0
-                try? entry.save(db)
+                try? $0.save(db)
             })
         }
     }
@@ -71,10 +73,11 @@ open class GRDBDAO<Model: Entity, DBModel: GRDBModel>: DAO<Model>  {
         }
         return array
     }
-
+    
     private func delete() {
         _ = db.inDatabase { (db) in
             try? DBModel.deleteAll(db)
         }
     }
 }
+

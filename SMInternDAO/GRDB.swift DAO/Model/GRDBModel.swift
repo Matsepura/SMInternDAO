@@ -9,19 +9,18 @@
 import Foundation
 import GRDB
 
-open class GRDBModel: RowConvertible, Hashable, MutablePersistable {
+open class GRDBModel: Record, Hashable {
+    public required override init() {
+        super.init()
+    }
+    
     public required init(row: Row) {
-        fatalError("Abstact method")
+        super.init(row: row)
     }
     
-    public required init(entryId: String,
-                         row: Row) {
-        fatalError("Abstact method")
-    }
-    
-    public var entryId: String
+    public var entryId: String = ""
     public var hashValue: Int = 0
-    public var databaseName: String
+    public var databaseName: String = ""
     
     open static func ==(lhs: GRDBModel, rhs: GRDBModel) -> Bool {
         // TODO: - хз что это - почитать и доделать
@@ -29,11 +28,12 @@ open class GRDBModel: RowConvertible, Hashable, MutablePersistable {
         return lhs.entryId == rhs.entryId
     }
     
-    open func encode(to container: inout PersistenceContainer) {
+    open override func encode(to container: inout PersistenceContainer) {
         fatalError("Abstact method")
     }
     
-    open class var databaseTableName: String {
+    open override class var databaseTableName: String {
         fatalError("Abstact method")
     }
 }
+
