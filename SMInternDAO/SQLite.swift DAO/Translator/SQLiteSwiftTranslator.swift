@@ -102,3 +102,4 @@ open class SQLiteSwiftTranslator<Model: Entity, DBModel: SQLiteSwiftModel> {
         }
     }
 }
+

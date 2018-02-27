@@ -24,3 +24,4 @@ open class SQLiteSwiftModel: Hashable {
     
     public var hashValue: Int = 0
 }
+
