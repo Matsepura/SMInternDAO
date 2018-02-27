@@ -7,3 +7,9 @@
 //
 
 import Foundation
+import SQLite
+
+public struct SQLiteSwiftConfiguration {
+    /// Database path
+    public let pathName: String
+}

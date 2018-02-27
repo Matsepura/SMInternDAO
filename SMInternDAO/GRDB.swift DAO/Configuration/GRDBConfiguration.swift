@@ -9,7 +9,7 @@
 import Foundation
 import GRDB
 
-public struct CoreDataConfiguration {
+public struct GRDBConfiguration {
     
     /// Database path
     public let pathName: String

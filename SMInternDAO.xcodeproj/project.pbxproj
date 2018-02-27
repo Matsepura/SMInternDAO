@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		188B2C41AA2D1FCCE774811D /* Pods_SMInternDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455FC615FD778AC9C777E31B /* Pods_SMInternDAO.framework */; };
+		45A8E1642045B420007544DA /* SQLiteSwiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A8E1632045B420007544DA /* SQLiteSwiftModel.swift */; };
 		45AA6D8920416BDE00481C24 /* SMInternDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 45AA6D8720416BDE00481C24 /* SMInternDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45AA6D9320416C1500481C24 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA6D9220416C1500481C24 /* DAO.swift */; };
 		45AA6D9520416C3300481C24 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA6D9420416C3300481C24 /* Entity.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		11671F8F104F67E28098A897 /* Pods-SMInternDAO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMInternDAO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SMInternDAO/Pods-SMInternDAO.debug.xcconfig"; sourceTree = "<group>"; };
 		455FC615FD778AC9C777E31B /* Pods_SMInternDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMInternDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45A8E1632045B420007544DA /* SQLiteSwiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteSwiftModel.swift; sourceTree = "<group>"; };
 		45AA6D8420416BDE00481C24 /* SMInternDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SMInternDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AA6D8720416BDE00481C24 /* SMInternDAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMInternDAO.h; sourceTree = "<group>"; };
 		45AA6D8820416BDE00481C24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 				CD0047A543AC70FB13308A26 /* Pods-SMInternDAO.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		45A8E1622045B409007544DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45A8E1632045B420007544DA /* SQLiteSwiftModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		45AA6D7A20416BDE00481C24 = {
@@ -103,6 +113,7 @@
 			children = (
 				45AA6D9D20416F0600481C24 /* Configuration */,
 				45AA6D9C20416F0500481C24 /* DAO */,
+				45A8E1622045B409007544DA /* Model */,
 				45AA6D9B20416F0100481C24 /* Translator */,
 			);
 			path = "SQLite.swift DAO";
@@ -304,6 +315,7 @@
 				45AA6DA62041705F00481C24 /* SQLiteSwiftConfiguration.swift in Sources */,
 				45AA6D9520416C3300481C24 /* Entity.swift in Sources */,
 				45AA6DA020416FEE00481C24 /* GRDBConfiguration.swift in Sources */,
+				45A8E1642045B420007544DA /* SQLiteSwiftModel.swift in Sources */,
 				45AA6DA82041706700481C24 /* SQLiteSwiftDAO.swift in Sources */,
 				45AA6DA42041701000481C24 /* GRDBTranslator.swift in Sources */,
 				45EA2E482041C2C100D4D4F6 /* GRDBModel.swift in Sources */,

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SMInternDAO'
-  s.version          = '0.1.9.6'
+  s.version          = '0.1.9.7'
   s.summary          = 'Intern homework'
 
   s.description      = <<-DESC
@@ -15,5 +15,6 @@ Creating DAO for SQLite.swift and GRDB.swift
   s.ios.deployment_target = '10.0'
   s.source_files = 'SMInternDAO/**/*.{h,swift,plist}'
   s.dependency "GRDB.swift", "~> 2.8.0"
+  s.dependency "SQLite.swift", "~> 0.11.4"
 
 end
