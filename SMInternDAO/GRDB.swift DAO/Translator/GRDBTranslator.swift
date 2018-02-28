@@ -86,7 +86,6 @@ open class GRDBTranslator<Model: Entity, DBModel: GRDBModel> {
                 }
             }
         } else {
-            //            entries.append(objectsIn: newEntries)
             entries.append(contentsOf: newEntries)
         }
     }

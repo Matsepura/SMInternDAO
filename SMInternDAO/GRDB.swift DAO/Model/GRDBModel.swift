@@ -23,8 +23,6 @@ open class GRDBModel: Record, Hashable {
     public var databaseName: String = ""
     
     open static func ==(lhs: GRDBModel, rhs: GRDBModel) -> Bool {
-        // TODO: - хз что это - почитать и доделать
-        // https://stackoverflow.com/questions/40713057/strange-behaviour-on-implementing-equatable-on-generic-struct-in-swift
         return lhs.entryId == rhs.entryId
     }
     
